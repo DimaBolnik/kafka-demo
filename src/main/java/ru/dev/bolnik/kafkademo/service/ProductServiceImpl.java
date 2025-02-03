@@ -9,13 +9,13 @@ import ru.dev.bolnik.kafkademo.service.dto.CreateProductDto;
 import ru.dev.bolnik.kafkademo.service.event.ProductCreatedEvent;
 
 import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
     private KafkaTemplate<String, ProductCreatedEvent> kafkaTemplate;
+
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
     public ProductServiceImpl(KafkaTemplate<String, ProductCreatedEvent> kafkaTemplate) {
